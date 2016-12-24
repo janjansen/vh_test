@@ -8,6 +8,10 @@ use Symfony\Component\Cache\CacheItem;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
+/**
+ * Class DefaultController
+ * @package AppBundle\Controller
+ */
 class DefaultController extends Controller
 {
     const DEFAULT_CACHE_TTL = 10;

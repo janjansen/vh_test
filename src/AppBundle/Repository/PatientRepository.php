@@ -39,7 +39,7 @@ DQL;
         $query->setParameter('search', $search . '%');
         $query->setMaxResults($limit);
         $query->setFirstResult($offset);
-        $results = new Paginator($query, $fetchJoin = true);
+        $results = new Paginator($query, true);
 
         return $results;
     }
