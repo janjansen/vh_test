@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>MEDREC</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+                <tr>
+                    <td>{{ patient.id }}</td>
+                    <td>{{ patient.name | e }}</td>
+                    <td>{{ patient.medrec_id | e}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="row">
+        {% if page > 1 %}
+            <div class="col-md-1"><a href="/no-orm?page={{ page - 1 }}">Назад</a></div>
+        {% endif %}
+        <div class="col-md-1"><a href="/no-orm?page={{ page + 1 }}">Вперед</a></div>
+    </div>
+{% endblock %}

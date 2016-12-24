@@ -1,0 +1,38 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: rosomkin
+ * Date: 24.12.16
+ * Time: 13:43
+ */
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="tb_patient_drug")
+ */
+class PatientDrug
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Patient", inversedBy="patientDrugs")
+     * @ORM\JoinColumn(name="patient_id", referencedColumnName="id", nullable=false)
+     */
+    protected $patient;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Drug", inversedBy="patientDrugs")
+     * @ORM\JoinColumn(name="drug_id", referencedColumnName="id", nullable=false)
+     */
+    protected $drug;
+}
